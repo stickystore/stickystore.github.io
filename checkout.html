@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sifariş</title>
+    <link rel="stylesheet" href="stylecheckout.css">
+</head>
+<body>
+    <script src="product.js"></script>
+    <script src="https://unpkg.com/stein-js-client"></script>
+
+
+    
+
+
+    <div  class='container'>
+        <div class='window'>
+          <div class='order-info'>
+            <div class='order-info-content'>
+              <h2>Sifarişiniz</h2>
+                      <div class='line'></div>
+              <table class='order-table'>
+                <tbody>
+                  <tr>
+                    <td><img id="photo" width="100px" height="100px" src=''></img>
+                    </td>
+                    <td>
+                      <br> <span id="namepro" class='thin'>mehsul</span>
+                      <br> <span class='thin small'> Ölçü: <span id="olcu">Orange</span> , Say: <span id="say">10.5</span><br><br></span>
+                    </td>
+      
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class='price'><span id="qiymet">$99.95</span></div>
+                    </td>
+                  </tr>
+                </tbody>
+      
+              </table>
+              <div class='line'></div>
+              
+
+              <div class='total'>
+                <span style='float:left;'>
+                  <div class='thin dense'>Çatdırılma</div>
+                  Ümumi <span id="kupon" style="font-weight: lighter; font-size: small;"></span>
+                </span>
+                <span style='float:right; text-align:right;'>
+                  <div class='thin dense'>0,00 ₼</div>
+                  <span id="total">0000</span>
+                </span>
+              </div>
+      </div>
+      </div>
+              <div class='credit-info'>
+                <div class='credit-info-content'>
+                  
+                  <img style="border-radius: 20px ;" src='logoforpp-01-01.jpg' height='80' class='credit-card-image' id='credit-card-image'></img>
+                  Ad və Soyadınız
+                  <input id="ad" style="border-radius: 20px ;" class='input-field' placeholder="Pepe Pepeyev"></input>
+                  Telefon nömrəniz
+                  <input id="phone" style="border-radius: 20px ;" class='input-field' placeholder="+994 XXXXXXX"></input>
+                  Çatdırılma adresi (Metro stansiyası)
+                  <input  id="adress" style="border-radius: 20px ;" class='input-field' placeholder="Metro stansiyası adı"></input>
+                  <p> </p>
+                  Endirim kodu (istəyə görə)
+                  <input id="kupon" style="border-style: dashed;border-radius: 20px" class='input-fiel' placeholder="STICK_XXXX_YYYY"></input>
+                  
+                  <table class='half-input-table'>
+                    <tr>
+                      <td>
+                        <input onclick="sifaris()" style="border-radius: 10px; background-color: #4488dd; cursor: pointer;" type="button" class='input-field' value="Sifariş et"></input>
+                      </td>
+                      <td>
+                        <input onclick="cancel()" style="border-radius: 10px; cursor: pointer;" type="button" class='input-field' value="Ləğv et"></input>
+                      </td>
+                    </tr>
+                  </table>
+      
+                </div>
+      
+              </div>
+            </div>
+      </div>
+      <script>
+        if(product !== null){
+            var product = window.localStorage.getItem('product');
+            var number = window.localStorage.getItem('number');
+            var size = window.localStorage.getItem('size');
+            var cost = window.localStorage.getItem('cost');
+            var imgLink = window.localStorage.getItem('imgLink');
+            document.getElementById("namepro").innerHTML = product;
+            document.getElementById("olcu").innerHTML = size;
+            document.getElementById("say").innerHTML = number;
+            document.getElementById("qiymet").innerHTML = cost+" ₼";
+            document.getElementById('photo').src=imgLink;
+            var totalcost = number*cost;
+            document.getElementById("total").innerHTML = totalcost+ " ₼";
+            
+        }
+        if( product == null){
+            alert("Sizin heç bir sifarişiniz yoxdur.");
+            window.open("index.html","_self")
+        }
+        
+        
+        </script>
+
+
+</body>
+</html>
